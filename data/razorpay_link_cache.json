@@ -1,0 +1,402 @@
+{
+  "atr_001:cart_reminder_link": {
+    "link_id": "plink_TXgEY5qGjl2c8c",
+    "short_url": "https://rzp.io/rzp/VsnZquZ",
+    "mode": "razorpay_test"
+  },
+  "atr_002:cart_reminder_link": {
+    "link_id": "plink_TXgEYfe6pgHj0r",
+    "short_url": "https://rzp.io/rzp/BsS4F9ER",
+    "mode": "razorpay_test"
+  },
+  "atr_003:cart_reminder_link": {
+    "link_id": "plink_TXgEZDio3mgyWW",
+    "short_url": "https://rzp.io/rzp/cCPck2vl",
+    "mode": "razorpay_test"
+  },
+  "atr_004:cart_reminder_link": {
+    "link_id": "plink_TXgEZmJ9iWd2Ta",
+    "short_url": "https://rzp.io/rzp/OD2HGp1",
+    "mode": "razorpay_test"
+  },
+  "atr_005:cart_reminder_link": {
+    "link_id": "plink_TXgEaQnROm2c0J",
+    "short_url": "https://rzp.io/rzp/dh24hyb",
+    "mode": "razorpay_test"
+  },
+  "atr_006:cart_reminder_link": {
+    "link_id": "plink_TXgJvRePLd5EO5",
+    "short_url": "https://rzp.io/rzp/pgTkqsFd",
+    "mode": "razorpay_test"
+  },
+  "atr_007:cart_reminder_link": {
+    "link_id": "plink_TXgJvxuwYpPx2k",
+    "short_url": "https://rzp.io/rzp/sSzY0Udg",
+    "mode": "razorpay_test"
+  },
+  "atr_008:cart_reminder_link": {
+    "link_id": "plink_TXgJwSgYPyf2Vl",
+    "short_url": "https://rzp.io/rzp/rTcNUhO",
+    "mode": "razorpay_test"
+  },
+  "atr_009:cart_reminder_link": {
+    "link_id": "plink_TXgJxEGAgR0gvA",
+    "short_url": "https://rzp.io/rzp/504wzrL6",
+    "mode": "razorpay_test"
+  },
+  "atr_010:cart_reminder_link": {
+    "link_id": "plink_TXgJxrkaRPBzeU",
+    "short_url": "https://rzp.io/rzp/6mYw7Fp",
+    "mode": "razorpay_test"
+  },
+  "atr_011:cart_reminder_link": {
+    "link_id": "plink_TXghUzVePaW1PJ",
+    "short_url": "https://rzp.io/rzp/TH551jT8",
+    "mode": "razorpay_test"
+  },
+  "atr_013:cart_reminder_link": {
+    "link_id": "plink_TXghW2ZhH0HVB0",
+    "short_url": "https://rzp.io/rzp/JKGlIqi",
+    "mode": "razorpay_test"
+  },
+  "atr_014:cart_reminder_link": {
+    "link_id": "plink_TXghWcOuUBOmcU",
+    "short_url": "https://rzp.io/rzp/OgVoCtz4",
+    "mode": "razorpay_test"
+  },
+  "atr_015:cart_reminder_link": {
+    "link_id": "plink_TXghXDv2gZ3jgb",
+    "short_url": "https://rzp.io/rzp/ZmJqguo",
+    "mode": "razorpay_test"
+  },
+  "atr_016:cart_reminder_link": {
+    "link_id": "plink_TXghXhKvGNFPCN",
+    "short_url": "https://rzp.io/rzp/PJe5a37",
+    "mode": "razorpay_test"
+  },
+  "atr_058:cart_reminder_link": {
+    "link_id": "plink_TXgiYEizfOc22e",
+    "short_url": "https://rzp.io/rzp/yPVosKGA",
+    "mode": "razorpay_test"
+  },
+  "atr_059:cart_reminder_link": {
+    "link_id": "plink_TXgiYwhmBzBGgZ",
+    "short_url": "https://rzp.io/rzp/XeGnki4I",
+    "mode": "razorpay_test"
+  },
+  "atr_001:update_instrument_link": {
+    "link_id": "plink_TXh0PlR9yi6TiQ",
+    "short_url": "https://rzp.io/rzp/m4J059T4",
+    "mode": "reused_account_link"
+  },
+  "atr_009:delay_retry": {
+    "link_id": "plink_TXgia8mRkoesGi",
+    "short_url": "https://rzp.io/rzp/hOUgmogT",
+    "mode": "razorpay_test"
+  },
+  "atr_010:delay_retry": {
+    "link_id": "plink_TXgiacUL6pWiRR",
+    "short_url": "https://rzp.io/rzp/U3UMmWB",
+    "mode": "razorpay_test"
+  },
+  "atr_017:cart_reminder_link": {
+    "link_id": "plink_TXgrYUI4vPlmSy",
+    "short_url": "https://rzp.io/rzp/4Kk6WsP",
+    "mode": "razorpay_test"
+  },
+  "atr_018:cart_reminder_link": {
+    "link_id": "plink_TXgrZ9z0WCeIOF",
+    "short_url": "https://rzp.io/rzp/aoFKv7s",
+    "mode": "razorpay_test"
+  },
+  "atr_020:cart_reminder_link": {
+    "link_id": "plink_TXgrZte95wPfDz",
+    "short_url": "https://rzp.io/rzp/XkRI74AH",
+    "mode": "razorpay_test"
+  },
+  "atr_021:cart_reminder_link": {
+    "link_id": "plink_TXgraUkS6aZ7tQ",
+    "short_url": "https://rzp.io/rzp/2JGRNjQD",
+    "mode": "razorpay_test"
+  },
+  "atr_022:cart_reminder_link": {
+    "link_id": "plink_TXgrbEDA1wWbhN",
+    "short_url": "https://rzp.io/rzp/jv2cbjG",
+    "mode": "razorpay_test"
+  },
+  "atr_023:cart_reminder_link": {
+    "link_id": "plink_TXh0NYshzTANtq",
+    "short_url": "https://rzp.io/rzp/dWQG3NQ",
+    "mode": "razorpay_test"
+  },
+  "atr_024:cart_reminder_link": {
+    "link_id": "plink_TXh0OP24BW72oY",
+    "short_url": "https://rzp.io/rzp/b8ADNc0N",
+    "mode": "razorpay_test"
+  },
+  "atr_025:cart_reminder_link": {
+    "link_id": "plink_TXh0P0xDLL0duM",
+    "short_url": "https://rzp.io/rzp/RQybAglG",
+    "mode": "razorpay_test"
+  },
+  "atr_026:cart_reminder_link": {
+    "link_id": "plink_TXh0PlR9yi6TiQ",
+    "short_url": "https://rzp.io/rzp/m4J059T4",
+    "mode": "razorpay_test"
+  },
+  "atr_027:cart_reminder_link": {
+    "link_id": "plink_test_atr_027_cart_r",
+    "short_url": "https://rzp.io/i/7_cart_r",
+    "mode": "stub"
+  },
+  "atr_028:cart_reminder_link": {
+    "link_id": "plink_test_atr_028_cart_r",
+    "short_url": "https://rzp.io/i/8_cart_r",
+    "mode": "stub"
+  },
+  "atr_029:cart_reminder_link": {
+    "link_id": "plink_test_atr_029_cart_r",
+    "short_url": "https://rzp.io/i/9_cart_r",
+    "mode": "stub"
+  },
+  "atr_030:cart_reminder_link": {
+    "link_id": "plink_test_atr_030_cart_r",
+    "short_url": "https://rzp.io/i/0_cart_r",
+    "mode": "stub"
+  },
+  "atr_031:cart_reminder_link": {
+    "link_id": "plink_test_atr_031_cart_r",
+    "short_url": "https://rzp.io/i/1_cart_r",
+    "mode": "stub"
+  },
+  "atr_032:cart_reminder_link": {
+    "link_id": "plink_test_atr_032_cart_r",
+    "short_url": "https://rzp.io/i/2_cart_r",
+    "mode": "stub"
+  },
+  "atr_033:cart_reminder_link": {
+    "link_id": "plink_test_atr_033_cart_r",
+    "short_url": "https://rzp.io/i/3_cart_r",
+    "mode": "stub"
+  },
+  "atr_035:cart_reminder_link": {
+    "link_id": "plink_test_atr_035_cart_r",
+    "short_url": "https://rzp.io/i/5_cart_r",
+    "mode": "stub"
+  },
+  "atr_036:cart_reminder_link": {
+    "link_id": "plink_test_atr_036_cart_r",
+    "short_url": "https://rzp.io/i/6_cart_r",
+    "mode": "stub"
+  },
+  "atr_039:cart_reminder_link": {
+    "link_id": "plink_test_atr_039_cart_r",
+    "short_url": "https://rzp.io/i/9_cart_r",
+    "mode": "stub"
+  },
+  "atr_041:cart_reminder_link": {
+    "link_id": "plink_test_atr_041_cart_r",
+    "short_url": "https://rzp.io/i/1_cart_r",
+    "mode": "stub"
+  },
+  "atr_043:cart_reminder_link": {
+    "link_id": "plink_test_atr_043_cart_r",
+    "short_url": "https://rzp.io/i/3_cart_r",
+    "mode": "stub"
+  },
+  "atr_054:cart_reminder_link": {
+    "link_id": "plink_test_atr_054_cart_r",
+    "short_url": "https://rzp.io/i/4_cart_r",
+    "mode": "stub"
+  },
+  "atr_055:cart_reminder_link": {
+    "link_id": "plink_test_atr_055_cart_r",
+    "short_url": "https://rzp.io/i/5_cart_r",
+    "mode": "stub"
+  },
+  "atr_056:cart_reminder_link": {
+    "link_id": "plink_test_atr_056_cart_r",
+    "short_url": "https://rzp.io/i/6_cart_r",
+    "mode": "stub"
+  },
+  "atr_057:cart_reminder_link": {
+    "link_id": "plink_test_atr_057_cart_r",
+    "short_url": "https://rzp.io/i/7_cart_r",
+    "mode": "stub"
+  },
+  "atr_011:delay_retry": {
+    "link_id": "plink_test_atr_011_delay_",
+    "short_url": "https://rzp.io/i/1_delay_",
+    "mode": "stub"
+  },
+  "atr_013:delay_retry": {
+    "link_id": "plink_test_atr_013_delay_",
+    "short_url": "https://rzp.io/i/3_delay_",
+    "mode": "stub"
+  },
+  "atr_014:delay_retry": {
+    "link_id": "plink_test_atr_014_delay_",
+    "short_url": "https://rzp.io/i/4_delay_",
+    "mode": "stub"
+  },
+  "atr_015:delay_retry": {
+    "link_id": "plink_test_atr_015_delay_",
+    "short_url": "https://rzp.io/i/5_delay_",
+    "mode": "stub"
+  },
+  "atr_016:delay_retry": {
+    "link_id": "plink_test_atr_016_delay_",
+    "short_url": "https://rzp.io/i/6_delay_",
+    "mode": "stub"
+  },
+  "atr_017:update_instrument_link": {
+    "link_id": "plink_test_atr_017_update",
+    "short_url": "https://rzp.io/i/7_update",
+    "mode": "stub"
+  },
+  "atr_018:update_instrument_link": {
+    "link_id": "plink_test_atr_018_update",
+    "short_url": "https://rzp.io/i/8_update",
+    "mode": "stub"
+  },
+  "atr_020:update_instrument_link": {
+    "link_id": "plink_test_atr_020_update",
+    "short_url": "https://rzp.io/i/0_update",
+    "mode": "stub"
+  },
+  "atr_021:update_instrument_link": {
+    "link_id": "plink_test_atr_021_update",
+    "short_url": "https://rzp.io/i/1_update",
+    "mode": "stub"
+  },
+  "atr_022:update_instrument_link": {
+    "link_id": "plink_test_atr_022_update",
+    "short_url": "https://rzp.io/i/2_update",
+    "mode": "stub"
+  },
+  "atr_023:update_instrument_link": {
+    "link_id": "plink_test_atr_023_update",
+    "short_url": "https://rzp.io/i/3_update",
+    "mode": "stub"
+  },
+  "atr_024:remandate_link": {
+    "link_id": "plink_test_atr_024_remand",
+    "short_url": "https://rzp.io/i/4_remand",
+    "mode": "stub"
+  },
+  "atr_025:remandate_link": {
+    "link_id": "plink_test_atr_025_remand",
+    "short_url": "https://rzp.io/i/5_remand",
+    "mode": "stub"
+  },
+  "atr_026:remandate_link": {
+    "link_id": "plink_test_atr_026_remand",
+    "short_url": "https://rzp.io/i/6_remand",
+    "mode": "stub"
+  },
+  "atr_027:remandate_link": {
+    "link_id": "plink_test_atr_027_remand",
+    "short_url": "https://rzp.io/i/7_remand",
+    "mode": "stub"
+  },
+  "atr_028:remandate_link": {
+    "link_id": "plink_test_atr_028_remand",
+    "short_url": "https://rzp.io/i/8_remand",
+    "mode": "stub"
+  },
+  "atr_029:remandate_link": {
+    "link_id": "plink_test_atr_029_remand",
+    "short_url": "https://rzp.io/i/9_remand",
+    "mode": "stub"
+  },
+  "atr_039:invoice_link": {
+    "link_id": "plink_test_atr_039_invoic",
+    "short_url": "https://rzp.io/i/9_invoic",
+    "mode": "stub"
+  },
+  "atr_041:invoice_link": {
+    "link_id": "plink_test_atr_041_invoic",
+    "short_url": "https://rzp.io/i/1_invoic",
+    "mode": "stub"
+  },
+  "atr_043:invoice_link": {
+    "link_id": "plink_test_atr_043_invoic",
+    "short_url": "https://rzp.io/i/3_invoic",
+    "mode": "stub"
+  },
+  "atr_055:delay_retry": {
+    "link_id": "plink_test_atr_055_delay_",
+    "short_url": "https://rzp.io/i/5_delay_",
+    "mode": "stub"
+  },
+  "atr_056:update_instrument_link": {
+    "link_id": "plink_test_atr_056_update",
+    "short_url": "https://rzp.io/i/6_update",
+    "mode": "stub"
+  },
+  "atr_057:remandate_link": {
+    "link_id": "plink_test_atr_057_remand",
+    "short_url": "https://rzp.io/i/7_remand",
+    "mode": "stub"
+  },
+  "atr_059:invoice_link": {
+    "link_id": "plink_test_atr_059_invoic",
+    "short_url": "https://rzp.io/i/9_invoic",
+    "mode": "stub"
+  },
+  "atr_019:update_instrument_link": {
+    "link_id": "plink_test_atr_019_update",
+    "short_url": "https://rzp.io/i/9_update",
+    "mode": "stub"
+  },
+  "atr_037:invoice_link": {
+    "link_id": "plink_test_atr_037_invoic",
+    "short_url": "https://rzp.io/i/7_invoic",
+    "mode": "stub"
+  },
+  "atr_038:invoice_link": {
+    "link_id": "plink_test_atr_038_invoic",
+    "short_url": "https://rzp.io/i/8_invoic",
+    "mode": "stub"
+  },
+  "atr_040:invoice_link": {
+    "link_id": "plink_test_atr_040_invoic",
+    "short_url": "https://rzp.io/i/0_invoic",
+    "mode": "stub"
+  },
+  "atr_042:invoice_link": {
+    "link_id": "plink_test_atr_042_invoic",
+    "short_url": "https://rzp.io/i/2_invoic",
+    "mode": "stub"
+  },
+  "atr_019:cart_reminder_link": {
+    "link_id": "plink_test_atr_019_cart_r",
+    "short_url": "https://rzp.io/i/9_cart_r",
+    "mode": "stub"
+  },
+  "atr_037:cart_reminder_link": {
+    "link_id": "plink_test_atr_037_cart_r",
+    "short_url": "https://rzp.io/i/7_cart_r",
+    "mode": "stub"
+  },
+  "atr_038:cart_reminder_link": {
+    "link_id": "plink_test_atr_038_cart_r",
+    "short_url": "https://rzp.io/i/8_cart_r",
+    "mode": "stub"
+  },
+  "atr_040:cart_reminder_link": {
+    "link_id": "plink_test_atr_040_cart_r",
+    "short_url": "https://rzp.io/i/0_cart_r",
+    "mode": "stub"
+  },
+  "atr_042:cart_reminder_link": {
+    "link_id": "plink_test_atr_042_cart_r",
+    "short_url": "https://rzp.io/i/2_cart_r",
+    "mode": "stub"
+  },
+  "atr_005:update_instrument_link": {
+    "link_id": "plink_TXh0OP24BW72oY",
+    "short_url": "https://rzp.io/rzp/b8ADNc0N",
+    "mode": "reused_account_link"
+  }
+}

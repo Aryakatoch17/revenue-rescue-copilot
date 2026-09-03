@@ -1,0 +1,362 @@
+{
+  "atr_001|payment_failed|GATEWAY_ERROR|Issuer unavailable / NPCI timeout|UPI collect expired at NPCI": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "UPI collect expired at NPCI",
+    "source": "groq"
+  },
+  "atr_002|payment_failed|BAD_REQUEST_ERROR|Bank is currently down|retry later from dashboard": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "Bank is currently down",
+    "source": "groq"
+  },
+  "atr_003|subscription_failed|SERVER_ERROR|5xx from issuing bank|": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "5xx error from issuing bank indicates bank is down",
+    "source": "groq"
+  },
+  "atr_004|payment_failed|GATEWAY_ERROR|timeout waiting for authorization|HDFC switch flap": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "timeout waiting for authorization indicates bank gateway down",
+    "source": "groq"
+  },
+  "atr_005|payment_failed|GATEWAY_ERROR|NPCI UPI 91 — bank offline|": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "Bank offline indicated by NPCI UPI 91 – bank offline",
+    "source": "groq"
+  },
+  "atr_006|payment_failed|SERVER_ERROR|issuer_unavailable|": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "issuer_unavailable indicates the issuing bank is down",
+    "source": "groq"
+  },
+  "atr_007|payment_failed|GATEWAY_ERROR|Could not reach bank|": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "Gateway error indicates bank unreachable",
+    "source": "groq"
+  },
+  "atr_008|subscription_failed|GATEWAY_ERROR|NPCI downtime window|subscription charge": {
+    "cause": "bank_down",
+    "confidence": 0.95,
+    "rationale": "NPCI downtime indicates a gateway/issuer outage",
+    "source": "groq"
+  },
+  "atr_009|payment_failed|BAD_REQUEST_ERROR|Payment failed due to insufficient funds|E001": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "Insufficient funds indicated by error description and E001 code.",
+    "source": "groq"
+  },
+  "atr_010|payment_failed|GATEWAY_ERROR|Not enough balance in account|": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "Not enough balance in account",
+    "source": "groq"
+  },
+  "atr_011|subscription_failed|BAD_REQUEST_ERROR|NSF on mandate debit|salary cycle 1st": {
+    "cause": "insufficient_funds",
+    "confidence": 0.9,
+    "rationale": "NSF on mandate debit indicates insufficient funds",
+    "source": "groq"
+  },
+  "atr_012|payment_failed|BAD_REQUEST_ERROR|insufficient funds|": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "Error description explicitly states insufficient funds",
+    "source": "groq"
+  },
+  "atr_013|payment_failed|GATEWAY_ERROR|UPI declined — no balance|": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "UPI declined due to no balance indicates insufficient funds",
+    "source": "groq"
+  },
+  "atr_014|payment_failed|BAD_REQUEST_ERROR|E001 insufficient|second fail same card": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "E001 insufficient indicates insufficient funds",
+    "source": "groq"
+  },
+  "atr_015|subscription_failed|BAD_REQUEST_ERROR|debit failed: funds|": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "Debit failed due to insufficient funds",
+    "source": "groq"
+  },
+  "atr_016|payment_failed|GATEWAY_ERROR|account does not have sufficient balance|": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "The error description indicates the account lacks sufficient balance.",
+    "source": "groq"
+  },
+  "atr_017|payment_failed|BAD_REQUEST_ERROR|Card expired|Visa •4242": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "Card expired",
+    "source": "groq"
+  },
+  "atr_018|subscription_failed|BAD_REQUEST_ERROR|saved instrument invalid|token_dead": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "The error indicates a dead token, implying the saved payment instrument has expired or become invalid.",
+    "source": "groq"
+  },
+  "atr_019|payment_failed|BAD_REQUEST_ERROR|Expired card, please update|high value": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "The error description explicitly states the card is expired.",
+    "source": "groq"
+  },
+  "atr_020|payment_failed|BAD_REQUEST_ERROR|instrument_expired|": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "instrument_expired",
+    "source": "groq"
+  },
+  "atr_021|payment_failed|BAD_REQUEST_ERROR|Your card has expired|": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "Card expired",
+    "source": "groq"
+  },
+  "atr_022|subscription_failed|BAD_REQUEST_ERROR|token expired for recurring|": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "token expired for recurring",
+    "source": "groq"
+  },
+  "atr_023|payment_failed|BAD_REQUEST_ERROR|invalid card — expiry|": {
+    "cause": "instrument_expired",
+    "confidence": 0.95,
+    "rationale": "card expired",
+    "source": "groq"
+  },
+  "atr_024|subscription_failed|BAD_REQUEST_ERROR|eMandate paused by customer bank|": {
+    "cause": "mandate_paused",
+    "confidence": 0.95,
+    "rationale": "eMandate paused by customer bank",
+    "source": "groq"
+  },
+  "atr_025|subscription_failed|BAD_REQUEST_ERROR|NACH mandate is paused|fitness club": {
+    "cause": "mandate_paused",
+    "confidence": 1.0,
+    "rationale": "NACH mandate is paused",
+    "source": "groq"
+  },
+  "atr_026|subscription_failed|BAD_REQUEST_ERROR|subscription: mandate paused|": {
+    "cause": "mandate_paused",
+    "confidence": 1.0,
+    "rationale": "mandate paused",
+    "source": "groq"
+  },
+  "atr_027|subscription_failed|BAD_REQUEST_ERROR|enach paused — cannot debit|": {
+    "cause": "mandate_paused",
+    "confidence": 0.95,
+    "rationale": "The error description explicitly states the eNACH mandate is paused, preventing debit.",
+    "source": "groq"
+  },
+  "atr_028|subscription_failed|BAD_REQUEST_ERROR|mandate_paused|": {
+    "cause": "mandate_paused",
+    "confidence": 1.0,
+    "rationale": "Mandate is paused as indicated by the error description",
+    "source": "groq"
+  },
+  "atr_029|subscription_failed|BAD_REQUEST_ERROR|eNACH authorization paused|B2B SaaS seat": {
+    "cause": "mandate_paused",
+    "confidence": 0.95,
+    "rationale": "eNACH authorization paused indicates the mandate was paused",
+    "source": "groq"
+  },
+  "atr_030|checkout_abandoned|||cart: 2 SKUs, dropped on UPI sheet": {
+    "cause": "checkout_abandoned",
+    "confidence": 0.95,
+    "rationale": "cart abandoned on UPI sheet",
+    "source": "groq"
+  },
+  "atr_031|checkout_abandoned|||abandoned checkout — no payment entity": {
+    "cause": "checkout_abandoned",
+    "confidence": 1.0,
+    "rationale": "checkout abandoned with no payment entity",
+    "source": "groq"
+  },
+  "atr_032|checkout_abandoned|||left cart after address step": {
+    "cause": "checkout_abandoned",
+    "confidence": 1.0,
+    "rationale": "Cart abandoned after address step",
+    "source": "groq"
+  },
+  "atr_033|checkout_abandoned|||checkout abandoned on payment page": {
+    "cause": "checkout_abandoned",
+    "confidence": 1.0,
+    "rationale": "checkout abandoned on payment page",
+    "source": "groq"
+  },
+  "atr_034|checkout_abandoned|||drop-off: UPI intent cancelled by user": {
+    "cause": "checkout_abandoned",
+    "confidence": 0.95,
+    "rationale": "User cancelled UPI intent, leaving cart abandoned",
+    "source": "groq"
+  },
+  "atr_035|checkout_abandoned|||abandoned cart 18 hours": {
+    "cause": "checkout_abandoned",
+    "confidence": 1.0,
+    "rationale": "cart abandoned after 18 hours",
+    "source": "groq"
+  },
+  "atr_036|checkout_abandoned|||checkout_abandoned": {
+    "cause": "checkout_abandoned",
+    "confidence": 1.0,
+    "rationale": "checkout abandoned indicated in notes",
+    "source": "groq"
+  },
+  "atr_037|invoice_overdue|||B2B invoice INV-2041 overdue 21 days": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "Overdue B2B invoice indicates unpaid status.",
+    "source": "groq"
+  },
+  "atr_038|invoice_overdue|||overdue invoice — net 15": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "Invoice is overdue with no hard decline",
+    "source": "groq"
+  },
+  "atr_039|invoice_overdue|||receivable aging 45d": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "Invoice overdue 45 days indicates an unpaid B2B invoice.",
+    "source": "groq"
+  },
+  "atr_040|invoice_overdue|||overdue invoice for annual plan": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "overdue B2B invoice",
+    "source": "groq"
+  },
+  "atr_041|invoice_overdue|||invoice unpaid, no bounce yet": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "invoice unpaid, no bounce yet",
+    "source": "groq"
+  },
+  "atr_042|invoice_overdue|||B2B overdue — finance controller cc'd": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "B2B invoice overdue",
+    "source": "groq"
+  },
+  "atr_043|invoice_overdue|||overdue invoice reminder eligible": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "Overdue B2B invoice with no hard decline indicates unpaid invoice.",
+    "source": "groq"
+  },
+  "atr_044|subscription_failed|BAD_REQUEST_ERROR|Customer cancelled the subscription|do not retry": {
+    "cause": "customer_cancelled",
+    "confidence": 1.0,
+    "rationale": "Customer explicitly cancelled the subscription",
+    "source": "groq"
+  },
+  "atr_045|subscription_failed|BAD_REQUEST_ERROR|revoked mandate at bank|unsubscribe confirmed": {
+    "cause": "mandate_paused",
+    "confidence": 0.95,
+    "rationale": "Mandate was revoked at bank, causing subscription failure.",
+    "source": "groq"
+  },
+  "atr_046|payment_failed|BAD_REQUEST_ERROR|customer requested cancellation|": {
+    "cause": "customer_cancelled",
+    "confidence": 0.95,
+    "rationale": "The error description explicitly states the customer requested cancellation.",
+    "source": "groq"
+  },
+  "atr_047|subscription_failed|BAD_REQUEST_ERROR|unsubscribed in app|": {
+    "cause": "customer_cancelled",
+    "confidence": 0.95,
+    "rationale": "The error description indicates the customer unsubscribed in the app.",
+    "source": "groq"
+  },
+  "atr_048|invoice_overdue|||customer cancelled contract — still in overdue queue (trap)": {
+    "cause": "customer_cancelled",
+    "confidence": 0.95,
+    "rationale": "customer explicitly cancelled contract",
+    "source": "groq"
+  },
+  "atr_049|payment_failed|BAD_REQUEST_ERROR|Blocked BIN — suspected fraud|velocity spike": {
+    "cause": "fraud_flag",
+    "confidence": 0.95,
+    "rationale": "Blocked BIN due to suspected fraud and velocity spike",
+    "source": "groq"
+  },
+  "atr_050|payment_failed|GATEWAY_ERROR|stolen card reported|": {
+    "cause": "fraud_flag",
+    "confidence": 0.95,
+    "rationale": "stolen card reported",
+    "source": "groq"
+  },
+  "atr_051|checkout_abandoned|||fraud_flag on device graph — do not send link": {
+    "cause": "fraud_flag",
+    "confidence": 0.9,
+    "rationale": "Fraud flag noted in transaction notes",
+    "source": "groq"
+  },
+  "atr_052|payment_failed|BAD_REQUEST_ERROR|RBI / fraud block|": {
+    "cause": "fraud_flag",
+    "confidence": 0.95,
+    "rationale": "RBI / fraud block indicates a fraud flag",
+    "source": "groq"
+  },
+  "atr_053|payment_failed|BAD_REQUEST_ERROR|velocity: suspected fraud|": {
+    "cause": "fraud_flag",
+    "confidence": 0.95,
+    "rationale": "velocity: suspected fraud",
+    "source": "groq"
+  },
+  "atr_054|payment_failed|GATEWAY_ERROR|Could not complete authorization in time|looks like timeout not NSF": {
+    "cause": "bank_down",
+    "confidence": 0.9,
+    "rationale": "Timeout during authorization indicates gateway/issuer downtime",
+    "source": "groq"
+  },
+  "atr_055|payment_failed|GATEWAY_ERROR|Issuer declined the transaction|declined — actually NSF": {
+    "cause": "insufficient_funds",
+    "confidence": 0.95,
+    "rationale": "NSF indicated in notes",
+    "source": "groq"
+  },
+  "atr_056|payment_failed|BAD_REQUEST_ERROR|Please use another method|old token": {
+    "cause": "instrument_expired",
+    "confidence": 0.9,
+    "rationale": "The notes indicate an old token, implying the payment instrument has expired.",
+    "source": "groq"
+  },
+  "atr_057|subscription_failed|BAD_REQUEST_ERROR|Unable to charge subscription|bank paused nach": {
+    "cause": "mandate_paused",
+    "confidence": 0.95,
+    "rationale": "Bank paused NACH mandate",
+    "source": "groq"
+  },
+  "atr_058|checkout_abandoned|||user closed sheet": {
+    "cause": "checkout_abandoned",
+    "confidence": 0.95,
+    "rationale": "User abandoned checkout by closing sheet",
+    "source": "groq"
+  },
+  "atr_059|invoice_overdue|||net-30 slipped": {
+    "cause": "invoice_unpaid",
+    "confidence": 0.95,
+    "rationale": "Invoice overdue with net-30 slip indicates unpaid invoice.",
+    "source": "groq"
+  },
+  "atr_cache|payment_failed|BAD_REQUEST_ERROR|Card expired|token": {
+    "cause": "instrument_expired",
+    "confidence": 0.9,
+    "rationale": "baked",
+    "source": "llm"
+  }
+}

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rescue · Revenue Recovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b1b33;
+      --ink-2: #16325a;
+      --paper: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d7e0ec;
+      --muted: #5b6b82;
+      --blue: #0c6cf2;
+      --blue-deep: #0a4fbf;
+      --teal: #0f8f7b;
+      --good: #0b7a4b;
+      --warn: #9a6700;
+      --bad: #b42318;
+      --shadow: 0 10px 30px rgba(11, 27, 51, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #dcebff 0%, transparent 55%),
+        radial-gradient(900px 400px at 100% 0%, #dff7f1 0%, transparent 50%),
+        var(--paper);
+      min-height: 100vh;
+    }
+    .shell { max-width: 1180px; margin: 0 auto; padding: 20px 20px 64px; }
+    .top {
+      display: flex; justify-content: space-between; gap: 16px; align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .brand {
+      display: flex; gap: 12px; align-items: center;
+    }
+    .mark {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(145deg, var(--blue), var(--teal));
+      color: white; display: grid; place-items: center;
+      font-weight: 700; letter-spacing: -0.04em;
+    }
+    h1 { margin: 0; font-size: 22px; letter-spacing: -0.03em; }
+    .sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; max-width: 54ch; line-height: 1.45; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    button, select, input {
+      font: inherit; border: 1px solid var(--line); background: var(--panel);
+      border-radius: 10px; padding: 9px 12px; color: var(--ink); cursor: pointer;
+    }
+    button.primary {
+      background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600;
+    }
+    button.primary:hover { background: var(--blue-deep); }
+    button:disabled { opacity: 0.55; cursor: wait; }
+    .pipeline {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px;
+    }
+    .step {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 12px 14px; box-shadow: var(--shadow);
+    }
+    .step b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .step span { display: block; margin-top: 6px; font-weight: 600; font-size: 14px; }
+    .grid-2 { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; margin-bottom: 14px; }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 16px; box-shadow: var(--shadow);
+    }
+    .panel h2 {
+      margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: var(--muted);
+    }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+    .metric .label { font-size: 12px; color: var(--muted); }
+    .metric .value { font-size: 24px; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+    .metric .value.good { color: var(--good); }
+    .matrix { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .matrix th, .matrix td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+    .matrix th { color: var(--muted); font-weight: 600; }
+    .matrix code, code {
+      font-family: "IBM Plex Mono", monospace; font-size: 11px;
+      background: #eef3fa; padding: 2px 6px; border-radius: 6px;
+    }
+    .thesis {
+      border-left: 3px solid var(--blue); padding-left: 12px; color: var(--ink-2);
+      font-size: 14px; line-height: 1.5; margin: 0 0 12px;
+    }
+    table.audit { width: 100%; border-collapse: collapse; font-size: 12px; }
+    table.audit th, table.audit td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    table.audit th { color: var(--muted); }
+    table.audit tr { cursor: pointer; }
+    table.audit tr:hover { background: #f0f5fc; }
+    .pill {
+      display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+      background: #eef3fa; color: var(--ink-2);
+    }
+    .pill.recovered, .pill.awaiting_payment { background: #e5f7ee; color: var(--good); }
+    .pill.queued { background: #fff4d6; color: var(--warn); }
+    .pill.violation, .pill.razorpay_error, .pill.policy_denied { background: #fde8e6; color: var(--bad); }
+    .pill.skipped { background: #eef3fa; }
+    pre {
+      margin: 0; background: #0b1b33; color: #d7e6ff; border-radius: 12px;
+      padding: 12px; overflow: auto; font-family: "IBM Plex Mono", monospace; font-size: 11px; line-height: 1.45;
+      max-height: 320px;
+    }
+    .queue-item {
+      display: flex; justify-content: space-between; gap: 10px; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+    }
+    .proof-box {
+      background: linear-gradient(180deg, #f7fbff, #ffffff);
+      border: 1px dashed #9db7de; border-radius: 14px; padding: 12px;
+    }
+    .guide {
+      background: #e8f1ff; border: 1px solid #b9d0f5; border-radius: 14px;
+      padding: 12px 14px; margin-bottom: 14px; font-size: 13px; line-height: 1.45;
+    }
+    .guide strong { font-weight: 700; }
+    .busybar {
+      display: none; margin-bottom: 12px; padding: 10px 12px; border-radius: 10px;
+      background: #fff4d6; border: 1px solid #e5c56a; color: var(--warn); font-size: 13px;
+    }
+    .busybar.on { display: block; }
+    .err { color: var(--bad); }
+    @media (max-width: 900px) {
+      .pipeline, .metrics, .grid-2 { grid-template-columns: 1fr; }
+      .top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="top">
+      <div class="brand">
+        <div class="mark">R</div>
+        <div>
+          <h1>Rescue</h1>
+          <p class="sub">Merchant revenue recovery for Razorpay — diagnose the failure, gate the action, execute a Payment Link, measure lift vs a no-diagnosis baseline.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <label class="muted">sim seed <input id="seed" type="number" value="7" style="width:70px" /></label>
+        <button id="seedBtn">Reseed</button>
+        <button id="bothBtn" class="primary">Run baseline + agent</button>
+      </div>
+    </div>
+
+    <div id="busybar" class="busybar">Working… please wait (another judge action may be in progress).</div>
+    <div class="guide">
+      <strong>Self-serve (no video required):</strong>
+      click <strong>Run baseline + agent</strong> → read lift → optional Approve → optional
+      <strong>Open live link</strong> (works cold; reuses unpaid links) → pay with Razorpay test card →
+      <strong>Poll paid?</strong>. Mash-safe: concurrent clicks return “busy”; refresh restores state.
+      Batch eval does not need live proof.
+    </div>
+
+    <div class="pipeline">
+      <div class="step"><b>01 Diagnose</b><span>Groq cache → cause enum</span></div>
+      <div class="step"><b>02 Gate</b><span>Python supervisor</span></div>
+      <div class="step"><b>03 Execute</b><span>Razorpay Payment Link</span></div>
+      <div class="step"><b>04 Prove</b><span>Batch lift + live pay</span></div>
+    </div>
+
+    <div class="metrics">
+      <div class="panel metric"><div class="label">At risk</div><div class="value" id="mRisk">—</div></div>
+      <div class="panel metric"><div class="label">Baseline recovered</div><div class="value" id="mBase">—</div></div>
+      <div class="panel metric"><div class="label">Agent recovered</div><div class="value good" id="mAgent">—</div></div>
+      <div class="panel metric"><div class="label">Lift · diag · illegal</div><div class="value" id="mLift">—</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Why this is not “another recovery bot”</h2>
+        <p class="thesis">Crowded demos pick a <em>channel</em>. Rescue picks an <em>action</em>. Wrong action ≈ zero recovery in the causal simulator — so diagnosis has to earn the lift.</p>
+        <table class="matrix" id="matrix"></table>
+      </div>
+      <div class="panel">
+        <h2>Live Razorpay proof (optional)</h2>
+        <p class="muted">Safe to click cold. Batch runs use <b>stub</b> links so they don’t burn Razorpay’s test-mode 30/day create cap. This panel is the only place that creates/reuses <b>real</b> unpaid links.</p>
+        <div class="proof-box" style="margin-top:10px">
+          <div class="actions" style="margin-bottom:8px">
+            <select id="proofRec"></select>
+            <button id="proofStart" class="primary">Open live link</button>
+            <button id="proofPoll">Poll paid?</button>
+          </div>
+          <div id="proofStatus" class="muted">No live proof yet.</div>
+        </div>
+        <div style="margin-top:12px">
+          <div class="muted">Webhook endpoint</div>
+          <code>/api/webhooks/razorpay</code>
+          <div id="whHint" class="muted" style="margin-top:6px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:14px">
+      <h2>Human approval (≥ ₹20,000)</h2>
+      <div id="queue"><p class="muted">Run the agent to populate.</p></div>
+    </div>
+
+    <div class="panel" style="margin-bottom:14px; overflow:auto">
+      <div class="actions" style="justify-content:space-between; margin-bottom:8px">
+        <h2 style="margin:0">Batch audit</h2>
+        <select id="runSel"></select>
+      </div>
+      <table class="audit">
+        <thead>
+          <tr>
+            <th>id</th><th>₹</th><th>true</th><th>diagnosed</th>
+            <th>action</th><th>gate</th><th>outcome</th><th>link</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Decision chain</h2>
+      <pre id="audit">Click a row.</pre>
+    </div>
+  </div>
+
+  <script>
+    const inr = (p) => "₹" + Math.round((p || 0) / 100).toLocaleString("en-IN");
+    let latest = { baseline: null, agent: null };
+    let detailCache = {};
+    let proofLinkId = localStorage.getItem("rescue_proof_link") || null;
+    const busyEls = () => [
+      document.getElementById("seedBtn"),
+      document.getElementById("bothBtn"),
+      document.getElementById("proofStart"),
+    ];
+
+    function setBusy(on, msg) {
+      const bar = document.getElementById("busybar");
+      bar.classList.toggle("on", !!on);
+      bar.textContent = msg || "Working… please wait.";
+      busyEls().forEach(b => { if (b) b.disabled = !!on; });
+    }
+
+    async function j(url, opts) {
+      const r = await fetch(url, Object.assign({ headers: { "Content-Type": "application/json" } }, opts || {}));
+      const text = await r.text();
+      let data;
+      try { data = text ? JSON.parse(text) : {}; } catch { data = { detail: text }; }
+      if (r.status === 409) {
+        const detail = data.detail || "Busy — retry in a moment.";
+        throw new Error(detail);
+      }
+      if (!r.ok) throw new Error(data.detail || text || r.statusText);
+      return data;
+    }
+
+    function pill(outcome) {
+      return `<span class="pill ${outcome}">${outcome}</span>`;
+    }
+
+    function showProof(out) {
+      proofLinkId = out.link_id;
+      if (proofLinkId) localStorage.setItem("rescue_proof_link", proofLinkId);
+      const reuse = out.reused ? " · reused unpaid link" : "";
+      document.getElementById("proofStatus").innerHTML =
+        `Link <code>${out.link_id}</code> · ${out.mode || ""}${reuse}<br/>` +
+        (out.pay_url
+          ? `<a href="${out.pay_url}" target="_blank" rel="noopener">Pay with Razorpay test card →</a>`
+          : "") +
+        (out.hint ? `<div class="muted" style="margin-top:6px">${out.hint}</div>` : "");
+    }
+
+    async function loadMatrix() {
+      const rows = await j("/api/matrix");
+      document.getElementById("matrix").innerHTML =
+        `<tr><th>Hidden cause (eval only)</th><th>Correct recovery action</th></tr>` +
+        rows.map(r => `<tr><td><code>${r.cause}</code></td><td><code>${r.action}</code></td></tr>`).join("");
+    }
+
+    async function refreshStats() {
+      const s = await j("/api/stats");
+      document.getElementById("mRisk").textContent = `${s.count} tx · ${inr(s.at_risk_paise)}`;
+      if (s.busy) setBusy(true, `Server busy: ${s.op || "operation"} in progress…`);
+      else setBusy(false);
+      document.getElementById("whHint").textContent = s.razorpay_configured
+        ? "Razorpay keys on · batch uses stubs (won't hit 30/day create cap) · live proof reuses unpaid links."
+        : "No Razorpay keys on host — use batch lift only; live proof will explain the error.";
+      if (s.open_proof && s.open_proof.link_id) {
+        proofLinkId = s.open_proof.link_id;
+        localStorage.setItem("rescue_proof_link", proofLinkId);
+        document.getElementById("proofStatus").innerHTML =
+          `Open unpaid proof <code>${s.open_proof.link_id}</code> · record ${s.open_proof.record_id}<br/>` +
+          (s.open_proof.pay_url
+            ? `<a href="${s.open_proof.pay_url}" target="_blank" rel="noopener">Continue payment →</a>`
+            : "");
+      } else if (proofLinkId) {
+        document.getElementById("proofStatus").innerHTML =
+          `Restored link from this browser: <code>${proofLinkId}</code> — click Poll paid?`;
+      }
+      return s;
+    }
+
+    async function loadProofCandidates() {
+      const rows = await j("/api/proof/candidates");
+      const sel = document.getElementById("proofRec");
+      sel.innerHTML = rows.map(r =>
+        `<option value="${r.id}">${r.id} · ${r.true_cause} · ${inr(r.amount_paise)}</option>`
+      ).join("");
+      const prefer = rows.find(r => r.id === "atr_017") || rows[0];
+      if (prefer) sel.value = prefer.id;
+    }
+
+    async function loadRuns() {
+      const runs = await j("/api/runs");
+      latest = { baseline: null, agent: null };
+      for (const r of runs) {
+        if (!latest[r.policy]) latest[r.policy] = r;
+      }
+      const b = latest.baseline, a = latest.agent;
+      document.getElementById("mBase").textContent = b ? inr(b.recovered_paise) : "—";
+      document.getElementById("mAgent").textContent = a ? inr(a.recovered_paise) : "—";
+      if (a && b) {
+        const lift = a.recovered_paise - b.recovered_paise;
+        const acc = a.diagnosis_total ? `${a.diagnosis_correct}/${a.diagnosis_total}` : "n/a";
+        document.getElementById("mLift").textContent =
+          `${inr(lift)} · ${acc} · illegal ${a.illegal_contacts}`;
+      } else {
+        document.getElementById("mLift").textContent = "—";
+      }
+      const sel = document.getElementById("runSel");
+      sel.innerHTML = runs.map(r => `<option value="${r.id}">${r.policy} · ${r.id}</option>`).join("");
+      if (a) sel.value = a.id;
+      else if (runs[0]) sel.value = runs[0].id;
+      if (sel.value) await loadDetail(sel.value);
+      else document.getElementById("tbody").innerHTML = "";
+    }
+
+    async function loadDetail(id) {
+      const data = await j("/api/runs/" + id);
+      detailCache = Object.fromEntries(data.decisions.map(d => [d.id, d]));
+      document.getElementById("tbody").innerHTML = data.decisions.map(d => `
+        <tr data-id="${d.id}">
+          <td>${d.record_id}</td>
+          <td>${inr(d.amount_paise)}</td>
+          <td>${d.true_cause}</td>
+          <td>${d.diagnosed_cause || "—"}</td>
+          <td><code>${d.proposed_action}</code></td>
+          <td>${d.supervisor_status}</td>
+          <td>${pill(d.outcome)}</td>
+          <td>${d.razorpay_link_id ? `<code>${d.razorpay_link_id}</code>` : "—"}</td>
+        </tr>`).join("");
+      document.querySelectorAll("#tbody tr").forEach(tr => tr.onclick = () => showAudit(tr.dataset.id));
+
+      const queued = data.decisions.filter(d => d.outcome === "queued");
+      const q = document.getElementById("queue");
+      if (!queued.length) q.innerHTML = `<p class="muted">None queued.</p>`;
+      else q.innerHTML = `<div class="actions"><button class="primary" onclick="approveAll()">Approve all</button></div>` +
+        queued.map(d => `
+          <div class="queue-item">
+            <div>
+              <strong>${d.record_id}</strong> ${d.customer_name} · ${inr(d.amount_paise)}
+              <div class="muted">${d.supervisor_reason}</div>
+            </div>
+            <div class="actions">
+              <button class="primary" onclick="resolve('${d.id}', true)">Approve</button>
+              <button onclick="resolve('${d.id}', false)">Deny</button>
+            </div>
+          </div>`).join("");
+    }
+
+    function showAudit(id) {
+      const d = detailCache[id];
+      document.getElementById("audit").textContent = JSON.stringify({
+        record: {
+          id: d.record_id, type: d.record_type, error_code: d.error_code,
+          error_description: d.error_description, notes: d.notes,
+          true_cause_hidden_from_agent: d.true_cause
+        },
+        diagnosis: { cause: d.diagnosed_cause, confidence: d.diagnosis_confidence, rationale: d.diagnosis_rationale },
+        proposal: { action: d.proposed_action, channel: d.proposed_channel, message: d.message_body },
+        supervisor: { allowed: !!d.supervisor_allowed, status: d.supervisor_status, rule_ids: d.rule_ids, reason: d.supervisor_reason },
+        razorpay: { link_id: d.razorpay_link_id, short_url: d.razorpay_short_url },
+        outcome: { status: d.outcome, recovered: inr(d.recovered_paise), action_match: d.action_match }
+      }, null, 2);
+    }
+
+    async function approveAll() {
+      setBusy(true, "Approving queued recoveries…");
+      try {
+        await j("/api/runs/" + document.getElementById("runSel").value + "/approve-all", {
+          method: "POST", body: JSON.stringify({ approve: true })
+        });
+        await loadRuns();
+      } catch (err) {
+        alert(err.message || err);
+      } finally { setBusy(false); }
+    }
+    async function resolve(id, approve) {
+      setBusy(true, "Updating approval…");
+      try {
+        await j("/api/decisions/" + id + "/resolve", { method: "POST", body: JSON.stringify({ approve }) });
+        await loadRuns();
+      } catch (err) {
+        alert(err.message || err);
+      } finally { setBusy(false); }
+    }
+
+    document.getElementById("seedBtn").onclick = async () => {
+      setBusy(true, "Reseeding stable batch…");
+      try {
+        await j("/api/seed", { method: "POST" });
+        await refreshStats();
+        await loadProofCandidates();
+        document.getElementById("tbody").innerHTML = "";
+        document.getElementById("mBase").textContent = "—";
+        document.getElementById("mAgent").textContent = "—";
+        document.getElementById("mLift").textContent = "—";
+      } catch (err) {
+        alert(err.message || err);
+      } finally { setBusy(false); }
+    };
+    document.getElementById("bothBtn").onclick = async () => {
+      setBusy(true, "Running baseline + agent (auto-seeds if empty)…");
+      try {
+        await j("/api/runs/both", {
+          method: "POST",
+          body: JSON.stringify({ seed: Number(document.getElementById("seed").value), policy: "agent" })
+        });
+        await refreshStats();
+        await loadRuns();
+      } catch (err) {
+        alert(err.message || err);
+      } finally { setBusy(false); }
+    };
+    document.getElementById("runSel").onchange = (e) => loadDetail(e.target.value);
+
+    document.getElementById("proofStart").onclick = async () => {
+      const record_id = document.getElementById("proofRec").value;
+      const el = document.getElementById("proofStatus");
+      setBusy(true, "Opening live Payment Link…");
+      el.textContent = "Working…";
+      try {
+        const out = await j("/api/proof/start", { method: "POST", body: JSON.stringify({ record_id }) });
+        showProof(out);
+        await loadRuns();
+      } catch (err) {
+        el.innerHTML = `<span class="err">${err.message || err}</span>`;
+      } finally { setBusy(false); }
+    };
+    document.getElementById("proofPoll").onclick = async () => {
+      if (!proofLinkId) {
+        document.getElementById("proofStatus").textContent =
+          "No link yet — click Open live link (works without running the batch first).";
+        return;
+      }
+      const out = await j("/api/proof/poll", { method: "POST", body: JSON.stringify({ link_id: proofLinkId }) });
+      document.getElementById("proofStatus").textContent = out.paid
+        ? `PAID on Razorpay · decision marked recovered (${out.status})`
+        : `Not paid yet · Razorpay status=${out.status || out.detail}`;
+      if (out.paid) await loadRuns();
+    };
+
+    Promise.all([loadMatrix(), refreshStats(), loadProofCandidates(), loadRuns()]).catch(console.error);
+    setInterval(() => { refreshStats().catch(() => {}); }, 8000);
+  </script>
+</body>
+</html>
