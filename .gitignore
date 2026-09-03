@@ -12,3 +12,4 @@ data/*.db
 *.egg-info/
 dist/
 build/
+.cursor/
