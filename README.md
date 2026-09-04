@@ -35,17 +35,6 @@ Bake Groq diagnoses **once** on your laptop. Commit `data/diagnosis_cache.json`.
 python -m app.bake
 ```
 
-## Online judging (repo + deployed URL)
-
-Judges will clone and click the live site **without you in the room**.
-
-| On the public host | Do this |
-|---|---|
-| `DIAGNOSIS_MODE` | `cache` (Dockerfile already sets this) |
-| `ALLOW_LIVE_LLM` | `0` |
-| `GROQ_API_KEY` | **Do not set** |
-| `RAZORPAY_KEY_ID` / `SECRET` | Set **test** keys so Payment Links / poll work |
-| `.env` | Never commit it |
 
 **Mash-safe behaviour**
 - Reseed / Run both / Approve / Proof take a process lock → concurrent clicks get **HTTP 409 Busy**.
@@ -54,7 +43,6 @@ Judges will clone and click the live site **without you in the room**.
 - Refresh restores open proof from the API + browser `localStorage`.
 - If Razorpay keys are missing, live proof returns a clear 503; **batch lift still works**.
 
-Razorpay **test keys do not auto-expire from inactivity** the way free LLM quotas do. The real risk is **rate limits from creating many Payment Links** — reuse + caps address that. Rotate keys only if you leak them in git.
 
 Tests:
 
@@ -99,6 +87,3 @@ Most Track 03 demos are “AI sends SMS.” Rescue is **action selection under a
 - `app/static/index.html` — demo UI
 - `app/main.py` — FastAPI
 
-## Out of scope
-
-Upsell, live SMS/voice as the money path, supervisor-as-LLM, epsilon-greedy theater.
