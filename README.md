@@ -51,15 +51,6 @@ pip install pytest
 pytest -q
 ```
 
-## Demo (4 minutes)
-
-1. Open the UI — read the **cause → action** matrix (not channel picker).
-2. **Reseed** → **Run baseline + agent** → read **lift live**.
-3. Open a win / stop / Razorpay error in the audit.
-4. **Approve** a ≥ ₹20k queue item.
-5. **Live proof:** open a fresh Payment Link → pay with Razorpay test card → **Poll paid?** (or configure webhook to `/api/webhooks/razorpay`).
-
-Do not quote a scripted recovery %. The number is generated live vs baseline.
 
 ## Differentiation
 
